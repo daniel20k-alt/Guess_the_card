@@ -21,6 +21,8 @@
 		EE02F01225535B69005799DD /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F01125535B69005799DD /* ExtensionDelegate.swift */; };
 		EE02F01425535B69005799DD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02F01325535B69005799DD /* ComplicationController.swift */; };
 		EE02F01625535B6D005799DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE02F01525535B6D005799DD /* Assets.xcassets */; };
+		EE36B1222554A127006013E6 /* PhantomFromSpace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE36B1202554A127006013E6 /* PhantomFromSpace.mp3 */; };
+		EE36B1232554A127006013E6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = EE36B1212554A127006013E6 /* README.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,9 @@
 		EE02F01325535B69005799DD /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		EE02F01525535B6D005799DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE02F01725535B6D005799DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE36B1202554A127006013E6 /* PhantomFromSpace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PhantomFromSpace.mp3; sourceTree = "<group>"; };
+		EE36B1212554A127006013E6 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		EE36B1292554A15C006013E6 /* PhantomFromSpace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PhantomFromSpace.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +139,7 @@
 				EE02EFF325535B65005799DD /* Assets.xcassets */,
 				EE02EFF525535B65005799DD /* LaunchScreen.storyboard */,
 				EE02EFF825535B65005799DD /* Info.plist */,
+				EE36B1272554A15C006013E6 /* Content */,
 			);
 			path = Guess_the_card;
 			sourceTree = "<group>";
@@ -156,8 +162,27 @@
 				EE02F01325535B69005799DD /* ComplicationController.swift */,
 				EE02F01525535B6D005799DD /* Assets.xcassets */,
 				EE02F01725535B6D005799DD /* Info.plist */,
+				EE36B11F2554A127006013E6 /* Content */,
 			);
 			path = "Guess_the_card WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		EE36B11F2554A127006013E6 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				EE36B1202554A127006013E6 /* PhantomFromSpace.mp3 */,
+				EE36B1212554A127006013E6 /* README.txt */,
+			);
+			name = Content;
+			path = "../../../../HackingWithSwift-Downloads/Classic/project37-files/Content";
+			sourceTree = "<group>";
+		};
+		EE36B1272554A15C006013E6 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				EE36B1292554A15C006013E6 /* PhantomFromSpace.mp3 */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +287,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE02EFF725535B65005799DD /* LaunchScreen.storyboard in Resources */,
+				EE36B1222554A127006013E6 /* PhantomFromSpace.mp3 in Resources */,
 				EE02EFF425535B65005799DD /* Assets.xcassets in Resources */,
 				EE02EFF225535B5F005799DD /* Main.storyboard in Resources */,
+				EE36B1232554A127006013E6 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +591,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -585,7 +612,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
