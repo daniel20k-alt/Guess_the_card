@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     
     @objc func loadCards() {
         
+        //enabling user interaction
+        view.isUserInteractionEnabled = true
+        
         //this will remove any existing cards
         for card in allCards {
             card.view.removeFromSuperview()
@@ -77,5 +80,23 @@ class ViewController: UIViewController {
             //adding the card view controller to array for ease of tracking
             allCards.append(card)
         }
+    }
+    
+    
+    func cardTapped(_ tapped: CardViewController) {
+     
+        guard view.isUserInteractionEnabled == true else { return }
+        view.isUserInteractionEnabled = false
+        
+        for card in allCards {
+            if card == tapped {
+                card.wasTapped()
+                card.perform(#selector(card.wasntTapped), with: nil, afterDelay: 1)
+            } else {
+                card.wasntTapped()
+            }
+        }
+        
+        perform(#selector(loadCards), with: nil, afterDelay: 2) //calling loadCards() after 2 sec
     }
 }
