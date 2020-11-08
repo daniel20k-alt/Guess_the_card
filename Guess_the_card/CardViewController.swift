@@ -19,6 +19,8 @@ class CardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        perform(#selector(wiggleCards), with: nil, afterDelay: 1) //calling the scaling of cards 
 
         view.bounds = CGRect(x: 0, y: 0, width: 100, height: 140)
         front = UIImageView(image: UIImage(named: "cardBack"))
@@ -61,4 +63,21 @@ class CardViewController: UIViewController {
             self.front.isHidden = false
         })
     }
+    
+    
+    @objc func wiggleCards() {
+        if Int.random(in: 0...3) == 1 {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .allowUserInteraction, animations: {
+                self.back.transform = CGAffineTransform(scaleX: 1.01, y: 1.01) //1%
+            }) { _ in
+                self.back.transform = CGAffineTransform.identity
+            }
+            
+            perform(#selector(wiggleCards), with: nil, afterDelay: 8) //after first move
+        
+        } else {
+            perform(#selector(wiggleCards), with: nil,afterDelay: 2)
+        }
+    }
+    
 }
