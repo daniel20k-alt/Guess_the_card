@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -15,13 +16,14 @@ class ViewController: UIViewController {
     
     @IBOutlet var gradientView: GradientView!
     
-    
+    var music: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         createParticles()
         loadCards()
+        playeMusic()
         
         view.backgroundColor = UIColor.red
         UIView.animate(withDuration: 20, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
@@ -135,5 +137,17 @@ class ViewController: UIViewController {
         
         gradientView.layer.addSublayer(particleEmitter) //the emitter will be behind cards
     
+    }
+    
+    
+    //loading and playing the music
+    func playeMusic() {
+        if let musicURL = Bundle.main.url(forResource: "PhantomFromSpace", withExtension: "mp3") {
+            if let audioPlayer = try? AVAudioPlayer(contentsOf: musicURL) {
+                music = audioPlayer
+                music.numberOfLoops = -1
+                music.play()
+            }
+        }
     }
 }
