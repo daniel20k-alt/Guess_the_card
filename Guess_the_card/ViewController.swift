@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createParticles()
         loadCards()
         
         view.backgroundColor = UIColor.red
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
             self.view.backgroundColor = UIColor.blue
         })
     }
+    
     
     @objc func loadCards() {
         
@@ -105,5 +107,33 @@ class ViewController: UIViewController {
         }
         
         perform(#selector(loadCards), with: nil, afterDelay: 2) //calling loadCards() after 2 sec
+    }
+    
+    
+    //creating the particle emmiter
+    func createParticles() {
+     let particleEmitter = CAEmitterLayer()
+        
+        particleEmitter.emitterPosition = CGPoint(x: view.frame.width / 2, y: -50)
+        particleEmitter.emitterShape = .line
+        particleEmitter.emitterSize = CGSize(width: view.frame.width, height: 1)
+        particleEmitter.renderMode = .additive
+        
+        let cell = CAEmitterCell()
+        cell.birthRate = 2 //particles created per sec
+        cell.lifetime = 5.0 //lifetime of particle in sec
+        cell.velocity = 100 //base movements speed
+        cell.velocityRange = 50 //velocity variation
+        cell.emissionLongitude = .pi //direction particles are fired
+        cell.spinRange = 5 //spin variation of particles
+        cell.scale = 0.5 //size of particles, 1.0 max
+        cell.scaleRange = 0.25 //size variation of particles
+        cell.color = UIColor(white: 1, alpha: 0.1).cgColor //particle color
+        cell.alphaSpeed = -0.025 //fade out of particles
+        cell.contents = UIImage(named: "particle")?.cgImage
+        particleEmitter.emitterCells = [cell]
+        
+        gradientView.layer.addSublayer(particleEmitter) //the emitter will be behind cards
+    
     }
 }
