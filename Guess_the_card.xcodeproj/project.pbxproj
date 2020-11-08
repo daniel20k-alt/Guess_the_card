@@ -24,6 +24,7 @@
 		EE36B1222554A127006013E6 /* PhantomFromSpace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EE36B1202554A127006013E6 /* PhantomFromSpace.mp3 */; };
 		EE36B1232554A127006013E6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = EE36B1212554A127006013E6 /* README.txt */; };
 		EE36B12E2554A4AC006013E6 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE36B12D2554A4AC006013E6 /* CardViewController.swift */; };
+		EE36B13325585877006013E6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE36B13225585877006013E6 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		EE36B1212554A127006013E6 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		EE36B1292554A15C006013E6 /* PhantomFromSpace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PhantomFromSpace.mp3; sourceTree = "<group>"; };
 		EE36B12D2554A4AC006013E6 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		EE36B13225585877006013E6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				EE02EFEE25535B5F005799DD /* ViewController.swift */,
 				EE02EFF025535B5F005799DD /* Main.storyboard */,
 				EE36B12D2554A4AC006013E6 /* CardViewController.swift */,
+				EE36B13225585877006013E6 /* GradientView.swift */,
 				EE02EFF325535B65005799DD /* Assets.xcassets */,
 				EE02EFF525535B65005799DD /* LaunchScreen.storyboard */,
 				EE02EFF825535B65005799DD /* Info.plist */,
@@ -323,6 +326,7 @@
 			files = (
 				EE36B12E2554A4AC006013E6 /* CardViewController.swift in Sources */,
 				EE02EFEF25535B5F005799DD /* ViewController.swift in Sources */,
+				EE36B13325585877006013E6 /* GradientView.swift in Sources */,
 				EE02EFEB25535B5F005799DD /* AppDelegate.swift in Sources */,
 				EE02EFED25535B5F005799DD /* SceneDelegate.swift in Sources */,
 			);

@@ -3,7 +3,6 @@
     <device id="retina5_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,31 +11,47 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Guess_the_card" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="J7F-SN-czr">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J7F-SN-czr">
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jo1-79-QSr" customClass="GradientView" customModule="Guess_the_card" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMA-U8-xCZ">
                                 <rect key="frame" x="128" y="47" width="480" height="320"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="hrf-ha-v5a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YMA-U8-xCZ" firstAttribute="top" secondItem="hrf-ha-v5a" secondAttribute="top" constant="47" id="MJS-LC-B9j"/>
+                            <constraint firstItem="Jo1-79-QSr" firstAttribute="centerX" secondItem="YMA-U8-xCZ" secondAttribute="centerX" id="L1D-G2-sfz"/>
+                            <constraint firstItem="YMA-U8-xCZ" firstAttribute="top" secondItem="J7F-SN-czr" secondAttribute="top" constant="47" id="MJS-LC-B9j"/>
                             <constraint firstItem="YMA-U8-xCZ" firstAttribute="centerX" secondItem="J7F-SN-czr" secondAttribute="centerX" id="SL2-g8-a6K"/>
-                            <constraint firstItem="YMA-U8-xCZ" firstAttribute="leading" secondItem="hrf-ha-v5a" secondAttribute="leading" constant="128" id="bBv-9Z-ohU"/>
+                            <constraint firstItem="YMA-U8-xCZ" firstAttribute="leading" secondItem="J7F-SN-czr" secondAttribute="leading" constant="128" id="bBv-9Z-ohU"/>
                             <constraint firstItem="YMA-U8-xCZ" firstAttribute="centerY" secondItem="J7F-SN-czr" secondAttribute="centerY" id="eSh-Wk-9KH"/>
+                            <constraint firstItem="Jo1-79-QSr" firstAttribute="bottom" secondItem="J7F-SN-czr" secondAttribute="bottom" id="hja-al-FO9"/>
+                            <constraint firstItem="Jo1-79-QSr" firstAttribute="top" secondItem="J7F-SN-czr" secondAttribute="top" id="oDq-fX-6SV"/>
+                            <constraint firstItem="Jo1-79-QSr" firstAttribute="leading" secondItem="J7F-SN-czr" secondAttribute="leading" id="rwq-Zz-qGN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cardContainer" destination="YMA-U8-xCZ" id="9Yg-dV-PlI"/>
+                        <outlet property="gradientView" destination="Jo1-79-QSr" id="Xzj-Uo-xZt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="73"/>
+            <point key="canvasLocation" x="19.565217391304348" y="72.463768115942031"/>
         </scene>
     </scenes>
     <resources>
