@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 
         createParticles()
         loadCards()
-        playeMusic()
+        playMusic()
         
         view.backgroundColor = UIColor.red
         UIView.animate(withDuration: 20, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
@@ -141,7 +141,7 @@ class ViewController: UIViewController {
     
     
     //loading and playing the music
-    func playeMusic() {
+    func playMusic() {
         if let musicURL = Bundle.main.url(forResource: "PhantomFromSpace", withExtension: "mp3") {
             if let audioPlayer = try? AVAudioPlayer(contentsOf: musicURL) {
                 music = audioPlayer
@@ -150,4 +150,25 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    //whenever the user uses force touch at maximum possible force - the card is set to correct
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: cardContainer)
+        
+        for card in allCards {
+            if card.view.frame.contains(location) { //true if point/user is inside rectangle/card
+                if view.traitCollection.forceTouchCapability == .available { //checking if 3dtouch is enabled
+                    if touch.force == touch.maximumPossibleForce {
+                        card.front.image = UIImage(named: "cardStar")
+                        card.isCorrect = true
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }
