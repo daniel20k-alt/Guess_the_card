@@ -7,8 +7,9 @@
 
 import UIKit
 import AVFoundation
+import WatchConnectivity
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WCSessionDelegate {
     
     var allCards = [CardViewController]()
     
@@ -17,10 +18,11 @@ class ViewController: UIViewController {
     @IBOutlet var gradientView: GradientView!
     
     var music: AVAudioPlayer!
+    var lastMessage: CFAbsoluteTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         createParticles()
         loadCards()
         playMusic()
@@ -29,8 +31,44 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 20, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
             self.view.backgroundColor = UIColor.blue
         })
+        
+        if (WCSession.isSupported()) {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
     }
     
+    
+    func sendWatchMessage() {
+        let currentTime = CFAbsoluteTimeGetCurrent()
+        
+        //exit if less than half a second has passed since last buzz
+        if lastMessage + 0.5 > currentTime {
+            return
+        }
+        
+        //if watch reacheable - send message
+        if WCSession.default.isReachable {
+            //the message doesn't matter
+            let message = ["Mesaj1": "Mesaj2"]
+            WCSession.default.sendMessage(message, replyHandler: nil)
+        }
+        //updating the time limiting propery
+        lastMessage = CFAbsoluteTimeGetCurrent()
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
     
     @objc func loadCards() {
         
@@ -44,7 +82,7 @@ class ViewController: UIViewController {
         }
         
         allCards.removeAll(keepingCapacity: true)
-
+        
         
         // creating a card array positions
         let positions = [
@@ -95,7 +133,7 @@ class ViewController: UIViewController {
     
     
     func cardTapped(_ tapped: CardViewController) {
-     
+        
         guard view.isUserInteractionEnabled == true else { return }
         view.isUserInteractionEnabled = false
         
@@ -114,7 +152,7 @@ class ViewController: UIViewController {
     
     //creating the particle emmiter
     func createParticles() {
-     let particleEmitter = CAEmitterLayer()
+        let particleEmitter = CAEmitterLayer()
         
         particleEmitter.emitterPosition = CGPoint(x: view.frame.width / 2, y: -50)
         particleEmitter.emitterShape = .line
@@ -136,7 +174,7 @@ class ViewController: UIViewController {
         particleEmitter.emitterCells = [cell]
         
         gradientView.layer.addSublayer(particleEmitter) //the emitter will be behind cards
-    
+        
     }
     
     
@@ -164,11 +202,14 @@ class ViewController: UIViewController {
                     if touch.force == touch.maximumPossibleForce {
                         card.front.image = UIImage(named: "cardStar")
                         card.isCorrect = true
+                        
                     }
+                }
+                
+                if card.isCorrect {
+                    sendWatchMessage()
                 }
             }
         }
     }
-    
-    
 }
