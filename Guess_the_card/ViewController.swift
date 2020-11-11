@@ -20,6 +20,17 @@ class ViewController: UIViewController, WCSessionDelegate {
     var music: AVAudioPlayer!
     var lastMessage: CFAbsoluteTime = 0
     
+    //reminder every time the app launches
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let instructions = "Please ensure the Apple Watch is configured correctly, by disabling the Wake Screen On Wrist Raise and selecting Wake for 70 seconds, then enabling Silent Mode on your Watch face"
+        let ac = UIAlertController(title: "Adjust settings", message: instructions, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ready!", style: .default))
+        present(ac, animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
